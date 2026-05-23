@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم - منصة أكاديميا</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <!-- Login Page -->
+    <div class="login-container" id="loginPage">
+        <div class="login-box">
+            <div class="login-header">
+                <h1>🔐 لوحة التحكم</h1>
+                <p>منصة أكاديميا</p>
+            </div>
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="username">اسم المستخدم</label>
+                    <input 
+                        type="text" 
+                        id="username" 
+                        placeholder="أدخل اسم المستخدم"
+                        required
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="password">كلمة السر</label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        placeholder="أدخل كلمة السر"
+                        required
+                    >
+                </div>
+                <button type="submit" class="login-btn">دخول</button>
+                <p class="signup-link">
+                    ليس لديك حساب؟ <a href="#" id="signupLink">إنشاء حساب جديد</a>
+                </p>
+            </form>
+            <div class="demo-info">
+                <p><strong>حساب تجريبي:</strong></p>
+                <p>اسم المستخدم: <code>admin</code></p>
+                <p>كلمة السر: <code>123456</code></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Page -->
+    <div class="signup-container hidden" id="signupPage">
+        <div class="signup-box">
+            <div class="signup-header">
+                <h1>📝 إنشاء حساب جديد</h1>
+            </div>
+            <form id="signupForm" class="signup-form">
+                <div class="form-group">
+                    <label for="newUsername">اسم المستخدم</label>
+                    <input 
+                        type="text" 
+                        id="newUsername" 
+                        placeholder="اختر اسم مستخدم"
+                        required
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="newPassword">كلمة السر</label>
+                    <input 
+                        type="password" 
+                        id="newPassword" 
+                        placeholder="اختر كلمة سر قوية"
+                        required
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">تأكيد كلمة السر</label>
+                    <input 
+                        type="password" 
+                        id="confirmPassword" 
+                        placeholder="أعد إدخال كلمة السر"
+                        required
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="email">البريد الإلكتروني</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        placeholder="أدخل بريدك الإلكتروني"
+                        required
+                    >
+                </div>
+                <button type="submit" class="signup-btn">إنشاء الحساب</button>
+                <p class="login-link">
+                    لديك حساب بالفعل؟ <a href="#" id="loginLink">تسجيل الدخول</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Dashboard Page -->
+    <div class="dashboard-container hidden" id="dashboardPage">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>🎓 أكاديميا</h2>
+                <button class="menu-toggle" id="menuToggle">☰</button>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#" class="nav-link active" data-section="dashboard">📊 لوحة التحكم</a></li>
+                    <li><a href="#" class="nav-link" data-section="users">👥 إدارة المستخدمين</a></li>
+                    <li><a href="#" class="nav-link" data-section="courses">📚 الدورات</a></li>
+                    <li><a href="#" class="nav-link" data-section="settings">⚙️ الإعدادات</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <button class="logout-btn" id="logoutBtn">🚪 تسجيل الخروج</button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="dashboard-header">
+                <h1 id="pageTitle">لوحة التحكم</h1>
+                <div class="header-info">
+                    <span class="user-info">
+                        👤 <span id="displayUsername">المستخدم</span>
+                    </span>
+                    <span class="time" id="currentTime"></span>
+                </div>
+            </header>
+
+            <!-- Dashboard Section -->
+            <section class="content-section active" id="dashboardSection">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">👥</div>
+                        <div class="stat-info">
+                            <h3>المستخدمين</h3>
+                            <p class="stat-number" id="totalUsers">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📚</div>
+                        <div class="stat-info">
+                            <h3>الدورات</h3>
+                            <p class="stat-number" id="totalCourses">4</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">✅</div>
+                        <div class="stat-info">
+                            <h3>المكتملة</h3>
+                            <p class="stat-number" id="completedCourses">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">⭐</div>
+                        <div class="stat-info">
+                            <h3>التقييم</h3>
+                            <p class="stat-number">4.8</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="welcome-section">
+                    <h2>مرحباً بك في لوحة التحكم! 👋</h2>
+                    <p>استخدم القائمة الجانبية للتنقل بين أقسام الإدارة</p>
+                </div>
+            </section>
+
+            <!-- Users Management Section -->
+            <section class="content-section" id="usersSection">
+                <div class="section-header">
+                    <h2>إدارة المستخدمين</h2>
+                    <button class="btn-primary" id="addUserBtn">➕ إضافة مستخدم جديد</button>
+                </div>
+
+                <!-- Add User Form -->
+                <div class="form-container hidden" id="addUserForm">
+                    <h3>إضافة مستخدم جديد</h3>
+                    <form id="userForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>اسم المستخدم</label>
+                                <input type="text" id="formUsername" required>
+                            </div>
+                            <div class="form-group">
+                                <label>كلمة السر</label>
+                                <input type="password" id="formPassword" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>البريد الإلكتروني</label>
+                                <input type="email" id="formEmail" required>
+                            </div>
+                            <div class="form-group">
+                                <label>الدور</label>
+                                <select id="formRole">
+                                    <option value="user">مستخدم عادي</option>
+                                    <option value="admin">مسؤول</option>
+                                    <option value="instructor">معلم</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn-success">حفظ</button>
+                            <button type="button" class="btn-cancel" id="cancelUserBtn">إلغاء</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Users Table -->
+                <div class="table-container">
+                    <table class="users-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>اسم المستخدم</th>
+                                <th>البريد الإلكتروني</th>
+                                <th>الدور</th>
+                                <th>تاريخ الإنشاء</th>
+                                <th>الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="usersTableBody">
+                            <!-- Users will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Courses Section -->
+            <section class="content-section" id="coursesSection">
+                <div class="section-header">
+                    <h2>إدارة الدورات</h2>
+                    <button class="btn-primary" id="addCourseBtn">➕ إضافة دورة جديدة</button>
+                </div>
+
+                <!-- Courses Grid -->
+                <div class="courses-grid">
+                    <div class="course-item">
+                        <div class="course-header">
+                            <h3>HTML & CSS</h3>
+                            <span class="course-badge">نشط</span>
+                        </div>
+                        <p class="course-desc">تعلم أساسيات بناء صفحات الويب</p>
+                        <div class="course-stats">
+                            <span>👥 150 طالب</span>
+                            <span>⭐ 4.9</span>
+                        </div>
+                        <div class="course-actions">
+                            <button class="btn-small btn-edit">✏️ تعديل</button>
+                            <button class="btn-small btn-delete">🗑️ حذف</button>
+                        </div>
+                    </div>
+
+                    <div class="course-item">
+                        <div class="course-header">
+                            <h3>JavaScript</h3>
+                            <span class="course-badge">نشط</span>
+                        </div>
+                        <p class="course-desc">احتراف لغة البرمجة الأساسية</p>
+                        <div class="course-stats">
+                            <span>👥 200 طالب</span>
+                            <span>⭐ 4.8</span>
+                        </div>
+                        <div class="course-actions">
+                            <button class="btn-small btn-edit">✏️ تعديل</button>
+                            <button class="btn-small btn-delete">🗑️ حذف</button>
+                        </div>
+                    </div>
+
+                    <div class="course-item">
+                        <div class="course-header">
+                            <h3>React.js</h3>
+                            <span class="course-badge">قريباً</span>
+                        </div>
+                        <p class="course-desc">بناء تطبيقات ويب حديثة</p>
+                        <div class="course-stats">
+                            <span>👥 0 طالب</span>
+                            <span>⭐ -</span>
+                        </div>
+                        <div class="course-actions">
+                            <button class="btn-small btn-edit">✏️ تعديل</button>
+                            <button class="btn-small btn-delete">🗑️ حذف</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Settings Section -->
+            <section class="content-section" id="settingsSection">
+                <div class="settings-container">
+                    <h2>الإعدادات</h2>
+                    
+                    <div class="settings-group">
+                        <h3>🔐 تغيير كلمة السر</h3>
+                        <form id="passwordForm" class="settings-form">
+                            <div class="form-group">
+                                <label>كلمة السر الحالية</label>
+                                <input type="password" id="currentPassword" required>
+                            </div>
+                            <div class="form-group">
+                                <label>كلمة السر الجديدة</label>
+                                <input type="password" id="newPassword" required>
+                            </div>
+                            <div class="form-group">
+                                <label>تأكيد كلمة السر الجديدة</label>
+                                <input type="password" id="confirmNewPassword" required>
+                            </div>
+                            <button type="submit" class="btn-success">تحديث كلمة السر</button>
+                        </form>
+                    </div>
+
+                    <div class="settings-group">
+                        <h3>📧 البريد الإلكتروني</h3>
+                        <form id="emailForm" class="settings-form">
+                            <div class="form-group">
+                                <label>البريد الإلكتروني الحالي</label>
+                                <input type="email" id="currentEmail" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label>البريد الإلكتروني الجديد</label>
+                                <input type="email" id="newEmail" required>
+                            </div>
+                            <button type="submit" class="btn-success">تحديث البريد الإلكتروني</button>
+                        </form>
+                    </div>
+
+                    <div class="settings-group danger-zone">
+                        <h3>⚠️ منطقة الخطر</h3>
+                        <p>حذف الحساب بشكل دائم</p>
+                        <button class="btn-danger" id="deleteAccountBtn">🗑️ حذف الحساب</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal for Edit/Delete -->
+    <div class="modal hidden" id="confirmModal">
+        <div class="modal-content">
+            <h3 id="modalTitle">تأكيد العملية</h3>
+            <p id="modalMessage"></p>
+            <div class="modal-actions">
+                <button class="btn-danger" id="confirmBtn">تأكيد</button>
+                <button class="btn-cancel" id="cancelBtn">إلغاء</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification"></div>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
