@@ -3,16 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>لوحة التحكم - منصة أكاديميا</title>
+    <title>لوحة التحكم - اتحاد الجامعات الإسلامية</title>
     <link rel="stylesheet" href="css/dashboard.css">
+    <style>
+      .header-top {
+        background: linear-gradient(135deg, #764ba2, #667eea);
+        color: #fff;
+        padding: 1.5rem;
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+
+      .header-top .logo-sm {
+        width: 60px;
+        height: 60px;
+        margin: 0 auto 1rem;
+      }
+
+      .header-top h2 {
+        margin: 0.5rem 0;
+        font-size: 1.3rem;
+      }
+
+      .header-top p {
+        margin: 0;
+        font-size: 0.95rem;
+        color: #fff9;
+      }
+    </style>
 </head>
 <body>
     <!-- Login Page -->
     <div class="login-container" id="loginPage">
         <div class="login-box">
             <div class="login-header">
+                <div style="font-size: 3rem; margin-bottom: 0.5rem;">🕌</div>
                 <h1>🔐 لوحة التحكم</h1>
-                <p>منصة أكاديميا</p>
+                <p>اتحاد الجامعات الإسلامية</p>
             </div>
             <form id="loginForm" class="login-form">
                 <div class="form-group">
@@ -99,6 +126,32 @@
 
     <!-- Dashboard Page -->
     <div class="dashboard-container hidden" id="dashboardPage">
+        <!-- Header Top with Logo & Vision/Mission -->
+        <div class="header-top">
+            <svg class="logo-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+                <circle cx="100" cy="100" r="95" fill="#fff" stroke="#764ba2" stroke-width="2"/>
+                <path d="M 60 80 Q 50 100 60 120" fill="none" stroke="#2d8659" stroke-width="8" stroke-linecap="round"/>
+                <ellipse cx="55" cy="85" rx="4" ry="8" fill="#2d8659"/>
+                <ellipse cx="52" cy="95" rx="4" ry="8" fill="#2d8659"/>
+                <ellipse cx="50" cy="105" rx="4" ry="8" fill="#2d8659"/>
+                <ellipse cx="52" cy="115" rx="4" ry="8" fill="#2d8659"/>
+                <path d="M 140 80 Q 150 100 140 120" fill="none" stroke="#2d8659" stroke-width="8" stroke-linecap="round"/>
+                <ellipse cx="145" cy="85" rx="4" ry="8" fill="#2d8659"/>
+                <ellipse cx="148" cy="95" rx="4" ry="8" fill="#2d8659"/>
+                <ellipse cx="150" cy="105" rx="4" ry="8" fill="#2d8659"/>
+                <ellipse cx="148" cy="115" rx="4" ry="8" fill="#2d8659"/>
+                <path d="M 100 50 Q 105 45 110 50" fill="none" stroke="#fff" stroke-width="3"/>
+                <circle cx="100" cy="48" r="5" fill="none" stroke="#fff" stroke-width="2"/>
+                <path d="M 90 80 L 100 70 L 110 80 L 110 120 L 90 120 Z" fill="none" stroke="#fff" stroke-width="2.5"/>
+                <line x1="100" y1="70" x2="100" y2="120" stroke="#fff" stroke-width="2"/>
+                <circle cx="100" cy="65" r="3" fill="#fff"/>
+                <line x1="98" y1="72" x2="102" y2="78" stroke="#fff" stroke-width="2"/>
+                <text x="100" y="145" font-family="Arial" font-size="20" font-weight="bold" fill="#fff" text-anchor="middle">U.I.U</text>
+            </svg>
+            <h2>🕌 اتحاد الجامعات الإسلامية</h2>
+            <p>🎓 تعليم إسلامي متقدم يخدم المجتمع | 📖 نشر العلم والقيم الإسلامية بطرق حديثة</p>
+        </div>
+
         <!-- Sidebar -->
         <aside class="sidebar">
             <div class="sidebar-header">
