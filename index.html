@@ -6,75 +6,348 @@
     <title>اتحاد الجامعات الإسلامية</title>
     <link rel="stylesheet" href="css/style.css">
     <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
       body {
         font-family: 'Cairo', Tahoma, Geneva, Verdana, sans-serif;
-        background: linear-gradient(135deg,#764ba2,#667eea 90%);
-        min-height: 100vh;
-        margin: 0;
+        background: #f5f7fa;
         color: #222;
       }
+
+      /* Navbar */
+      .navbar {
+        background: linear-gradient(135deg, #764ba2, #667eea);
+        padding: 1rem 2rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .navbar-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .navbar-logo {
+        color: #fff;
+        font-size: 1.5rem;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .navbar-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+
+      .navbar-links a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 500;
+        transition: opacity 0.3s;
+      }
+
+      .navbar-links a:hover {
+        opacity: 0.8;
+      }
+
+      /* Main Header */
       .main-header {
         text-align: center;
+        background: linear-gradient(135deg, #764ba2, #667eea);
         color: #fff;
-        margin-top: 9vh;
-        padding: 25px 12px 18px 12px;
+        padding: 4rem 2rem;
       }
+
+      .logo-container {
+        margin-bottom: 2rem;
+      }
+
+      .logo-container img {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      }
+
       .main-header h1 {
         font-size: 3rem;
-        margin-bottom: 16px;
+        margin-bottom: 0.5rem;
         letter-spacing: 2px;
-        font-weight: bold;
-        text-shadow: 0 3px 20px #2222, 0 1px 0 #fff8;
+        text-shadow: 0 3px 20px rgba(0,0,0,0.3);
       }
-      .main-header .subtitle {
+
+      .main-header .tagline {
         font-size: 1.5rem;
         color: #fff9;
-        display: block;
-        margin-bottom: 1.5em;
-        text-shadow: 0 3px 14px #2224;
+        margin-bottom: 2.5rem;
+        text-shadow: 0 2px 14px rgba(0,0,0,0.2);
       }
-      .logo-icon {
-        font-size: 4.5rem;
-        margin-bottom: 0.2em;
-        color: #fff;
-        text-shadow: 0 2px 28px #764ba2a0;
+
+      /* Vision & Mission Section */
+      .vision-mission {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        max-width: 1000px;
+        margin: 3rem auto;
+        padding: 2rem;
       }
+
+      .vision-card, .mission-card {
+        background: #fff;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(118, 75, 162, 0.15);
+        text-align: center;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .vision-card:hover, .mission-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 25px rgba(118, 75, 162, 0.25);
+      }
+
+      .vision-card h2, .mission-card h2 {
+        color: #764ba2;
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+      }
+
+      .vision-card p, .mission-card p {
+        color: #555;
+        line-height: 1.8;
+        font-size: 1.1rem;
+      }
+
+      .icon-large {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      /* Video Section */
+      .video-section {
+        background: #fff;
+        padding: 3rem 2rem;
+        text-align: center;
+        margin: 3rem 0;
+      }
+
+      .video-section h2 {
+        color: #764ba2;
+        margin-bottom: 2rem;
+        font-size: 2rem;
+      }
+
+      .video-container {
+        max-width: 800px;
+        margin: 0 auto;
+        position: relative;
+        width: 100%;
+        padding-bottom: 56.25%;
+        height: 0;
+        overflow: hidden;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      }
+
+      .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+        border-radius: 12px;
+      }
+
+      /* Main Links */
       .main-links {
-        margin-top: 2.7em;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 1.3em;
+        gap: 1.5rem;
+        margin: 2rem 0;
       }
+
       .main-links a {
         background: #fff;
         color: #764ba2;
-        font-size: 1.13rem;
-        padding: 0.90em 2.4em;
+        font-size: 1.1rem;
+        padding: 0.9em 2.2em;
         border-radius: 999px;
         font-weight: bold;
-        box-shadow: 0 2px 10px #2222;
+        box-shadow: 0 3px 12px rgba(0,0,0,0.15);
         border: none;
         text-decoration: none;
-        transition: background 0.18s, color 0.18s, transform .12s;
+        transition: background 0.2s, color 0.2s, transform 0.15s;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
       }
+
       .main-links a:hover {
         background: #764ba2;
         color: #fff;
-        transform: translateY(-5px) scale(1.06);
+        transform: translateY(-3px);
+      }
+
+      /* Footer */
+      footer {
+        background: linear-gradient(135deg, #764ba2, #667eea);
+        color: #fff;
+        text-align: center;
+        padding: 2rem;
+        margin-top: 3rem;
+      }
+
+      footer p {
+        margin: 0.5rem 0;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .main-header h1 {
+          font-size: 2rem;
+        }
+
+        .main-header .tagline {
+          font-size: 1.1rem;
+        }
+
+        .vision-mission {
+          grid-template-columns: 1fr;
+          padding: 1rem;
+        }
+
+        .navbar-links {
+          gap: 1rem;
+          font-size: 0.9rem;
+        }
+
+        .logo-container img {
+          width: 140px;
+          height: 140px;
+        }
+
+        .main-links {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .main-links a {
+          width: 100%;
+          justify-content: center;
+        }
       }
     </style>
 </head>
 <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <div class="navbar-logo">
+                🕌 اتحاد الجامعات الإسلامية
+            </div>
+            <ul class="navbar-links">
+                <li><a href="#vision">الرؤية والرسالة</a></li>
+                <li><a href="#video">الفيديو</a></li>
+                <li><a href="#links">الروابط</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Header -->
     <header class="main-header">
-        <div class="logo-icon">🕌</div>
+        <div class="logo-container">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" style="width: 180px; height: 180px;">
+                <!-- Circle background -->
+                <circle cx="100" cy="100" r="95" fill="#fff" stroke="#764ba2" stroke-width="2"/>
+                
+                <!-- Left laurel wreath -->
+                <path d="M 60 80 Q 50 100 60 120" fill="none" stroke="#2d8659" stroke-width="8" stroke-linecap="round"/>
+                <ellipse cx="55" cy="85" rx="4" ry="8" fill="#2d8659"/>
+                <ellipse cx="52" cy="95" rx="4" ry="8" fill="#2d8659"/>
+                <ellipse cx="50" cy="105" rx="4" ry="8" fill="#2d8659"/>
+                <ellipse cx="52" cy="115" rx="4" ry="8" fill="#2d8659"/>
+                
+                <!-- Right laurel wreath -->
+                <path d="M 140 80 Q 150 100 140 120" fill="none" stroke="#2d8659" stroke-width="8" stroke-linecap="round"/>
+                <ellipse cx="145" cy="85" rx="4" ry="8" fill="#2d8659"/>
+                <ellipse cx="148" cy="95" rx="4" ry="8" fill="#2d8659"/>
+                <ellipse cx="150" cy="105" rx="4" ry="8" fill="#2d8659"/>
+                <ellipse cx="148" cy="115" rx="4" ry="8" fill="#2d8659"/>
+                
+                <!-- Moon on top -->
+                <path d="M 100 50 Q 105 45 110 50" fill="none" stroke="#764ba2" stroke-width="3"/>
+                <circle cx="100" cy="48" r="5" fill="none" stroke="#764ba2" stroke-width="2"/>
+                
+                <!-- Open book with pen -->
+                <path d="M 90 80 L 100 70 L 110 80 L 110 120 L 90 120 Z" fill="none" stroke="#764ba2" stroke-width="2.5"/>
+                <line x1="100" y1="70" x2="100" y2="120" stroke="#764ba2" stroke-width="2"/>
+                
+                <!-- Pen -->
+                <circle cx="100" cy="65" r="3" fill="#764ba2"/>
+                <line x1="98" y1="72" x2="102" y2="78" stroke="#764ba2" stroke-width="2"/>
+                
+                <!-- Center text -->
+                <text x="100" y="145" font-family="Arial" font-size="20" font-weight="bold" fill="#2d8659" text-anchor="middle">U.I.U</text>
+            </svg>
+        </div>
+
         <h1>اتحاد الجامعات الإسلامية</h1>
-        <span class="subtitle">لغةٌ راسخة، وقرآنٌ هادٍ، وتقنيةٌ تخدم القيم.</span>
+        <p class="tagline">لغةٌ راسخة، وقرآنٌ هادٍ، وتقنيةٌ تخدم القيم.</p>
+
+        <!-- Vision & Mission -->
+        <section id="vision" class="vision-mission">
+            <div class="vision-card">
+                <div class="icon-large">🎓</div>
+                <h2>الرؤية</h2>
+                <p>تعليم إسلامي متقدم يخدم المجتمع</p>
+            </div>
+
+            <div class="mission-card">
+                <div class="icon-large">📖</div>
+                <h2>الرسالة</h2>
+                <p>نشر العلم والقيم الإسلامية بطرق حديثة</p>
+            </div>
+        </section>
+    </header>
+
+    <!-- Video Section -->
+    <section id="video" class="video-section">
+        <h2>🎬 فيديو الترحيب</h2>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <!-- Main Links -->
+    <section id="links" style="text-align: center; padding: 2rem 1rem;">
         <div class="main-links">
             <a href="dashboard.html">🔐 لوحة التحكم</a>
             <a href="todo.html">📋 قائمة المهام</a>
             <a href="index2.html">🎓 منصة أكاديميا</a>
         </div>
-    </header>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 اتحاد الجامعات الإسلامية. جميع الحقوق محفوظة.</p>
+        <p>لغةٌ راسخة، وقرآنٌ هادٍ، وتقنيةٌ تخدم القيم.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
