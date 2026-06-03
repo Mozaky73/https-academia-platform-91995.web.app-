@@ -30,6 +30,218 @@
         font-size: 0.95rem;
         color: #fff9;
       }
+
+      /* CMS Styles */
+      .cms-section {
+        background: #fff;
+        padding: 2rem;
+        border-radius: 12px;
+        margin-bottom: 2rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      }
+
+      .cms-section h3 {
+        color: #764ba2;
+        margin-bottom: 1.5rem;
+        border-bottom: 2px solid #764ba2;
+        padding-bottom: 0.5rem;
+      }
+
+      .cms-form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .cms-form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: #333;
+        font-weight: 600;
+      }
+
+      .cms-form-group input,
+      .cms-form-group textarea,
+      .cms-form-group select {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-family: 'Cairo', Arial;
+        font-size: 1rem;
+      }
+
+      .cms-form-group textarea {
+        resize: vertical;
+        min-height: 100px;
+      }
+
+      .cms-form-group input:focus,
+      .cms-form-group textarea:focus,
+      .cms-form-group select:focus {
+        outline: none;
+        border-color: #764ba2;
+        box-shadow: 0 0 5px rgba(118, 75, 162, 0.3);
+      }
+
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+
+      .form-actions {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+
+      .btn-save {
+        background: #2ecc71;
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background 0.3s;
+      }
+
+      .btn-save:hover {
+        background: #27ae60;
+      }
+
+      .btn-cancel {
+        background: #e74c3c;
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background 0.3s;
+      }
+
+      .btn-cancel:hover {
+        background: #c0392b;
+      }
+
+      .btn-add {
+        background: #3498db;
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background 0.3s;
+      }
+
+      .btn-add:hover {
+        background: #2980b9;
+      }
+
+      /* Image Preview */
+      .image-preview {
+        margin-top: 1rem;
+        max-width: 300px;
+      }
+
+      .image-preview img {
+        width: 100%;
+        border-radius: 6px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      }
+
+      .preview-text {
+        color: #666;
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+      }
+
+      /* Courses List */
+      .courses-list {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .course-item-cms {
+        background: #f9f9f9;
+        padding: 1.5rem;
+        border-radius: 8px;
+        border-left: 4px solid #764ba2;
+      }
+
+      .course-item-cms h4 {
+        color: #764ba2;
+        margin-bottom: 0.5rem;
+      }
+
+      .course-item-cms p {
+        color: #666;
+        margin-bottom: 1rem;
+      }
+
+      .course-item-actions {
+        display: flex;
+        gap: 0.5rem;
+      }
+
+      .btn-edit, .btn-delete {
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background 0.3s;
+      }
+
+      .btn-edit {
+        background: #3498db;
+        color: white;
+      }
+
+      .btn-edit:hover {
+        background: #2980b9;
+      }
+
+      .btn-delete {
+        background: #e74c3c;
+        color: white;
+      }
+
+      .btn-delete:hover {
+        background: #c0392b;
+      }
+
+      /* Notification */
+      .notification {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #2ecc71;
+        color: white;
+        padding: 1rem 1.5rem;
+        border-radius: 6px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        z-index: 1000;
+        animation: slideIn 0.3s ease-out;
+      }
+
+      @keyframes slideIn {
+        from {
+          transform: translateX(400px);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+      }
     </style>
 </head>
 <body>
@@ -73,82 +285,12 @@
         </div>
     </div>
 
-    <!-- Signup Page -->
-    <div class="signup-container hidden" id="signupPage">
-        <div class="signup-box">
-            <div class="signup-header">
-                <h1>📝 إنشاء حساب جديد</h1>
-            </div>
-            <form id="signupForm" class="signup-form">
-                <div class="form-group">
-                    <label for="newUsername">اسم المستخدم</label>
-                    <input 
-                        type="text" 
-                        id="newUsername" 
-                        placeholder="اختر اسم مستخدم"
-                        required
-                    >
-                </div>
-                <div class="form-group">
-                    <label for="newPassword">كلمة السر</label>
-                    <input 
-                        type="password" 
-                        id="newPassword" 
-                        placeholder="اختر كلمة سر قوية"
-                        required
-                    >
-                </div>
-                <div class="form-group">
-                    <label for="confirmPassword">تأكيد كلمة السر</label>
-                    <input 
-                        type="password" 
-                        id="confirmPassword" 
-                        placeholder="أعد إدخال كلمة السر"
-                        required
-                    >
-                </div>
-                <div class="form-group">
-                    <label for="email">البريد الإلكتروني</label>
-                    <input 
-                        type="email" 
-                        id="email" 
-                        placeholder="أدخل بريدك الإلكتروني"
-                        required
-                    >
-                </div>
-                <button type="submit" class="signup-btn">إنشاء الحساب</button>
-                <p class="login-link">
-                    لديك حساب بالفعل؟ <a href="#" id="loginLink">تسجيل الدخول</a>
-                </p>
-            </form>
-        </div>
-    </div>
-
     <!-- Dashboard Page -->
     <div class="dashboard-container hidden" id="dashboardPage">
-        <!-- Header Top with Logo & Vision/Mission -->
+        <!-- Header Top -->
         <div class="header-top">
-            <svg class="logo-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
-                <circle cx="100" cy="100" r="95" fill="#fff" stroke="#764ba2" stroke-width="2"/>
-                <path d="M 60 80 Q 50 100 60 120" fill="none" stroke="#2d8659" stroke-width="8" stroke-linecap="round"/>
-                <ellipse cx="55" cy="85" rx="4" ry="8" fill="#2d8659"/>
-                <ellipse cx="52" cy="95" rx="4" ry="8" fill="#2d8659"/>
-                <ellipse cx="50" cy="105" rx="4" ry="8" fill="#2d8659"/>
-                <ellipse cx="52" cy="115" rx="4" ry="8" fill="#2d8659"/>
-                <path d="M 140 80 Q 150 100 140 120" fill="none" stroke="#2d8659" stroke-width="8" stroke-linecap="round"/>
-                <ellipse cx="145" cy="85" rx="4" ry="8" fill="#2d8659"/>
-                <ellipse cx="148" cy="95" rx="4" ry="8" fill="#2d8659"/>
-                <ellipse cx="150" cy="105" rx="4" ry="8" fill="#2d8659"/>
-                <ellipse cx="148" cy="115" rx="4" ry="8" fill="#2d8659"/>
-                <path d="M 100 50 Q 105 45 110 50" fill="none" stroke="#fff" stroke-width="3"/>
-                <circle cx="100" cy="48" r="5" fill="none" stroke="#fff" stroke-width="2"/>
-                <path d="M 90 80 L 100 70 L 110 80 L 110 120 L 90 120 Z" fill="none" stroke="#fff" stroke-width="2.5"/>
-                <line x1="100" y1="70" x2="100" y2="120" stroke="#fff" stroke-width="2"/>
-                <circle cx="100" cy="65" r="3" fill="#fff"/>
-                <line x1="98" y1="72" x2="102" y2="78" stroke="#fff" stroke-width="2"/>
-                <text x="100" y="145" font-family="Arial" font-size="20" font-weight="bold" fill="#fff" text-anchor="middle">U.I.U</text>
-            </svg>
-            <h2>🕌 اتحاد الجامعات الإسلامية</h2>
+            <div style="font-size: 2.5rem;">🕌</div>
+            <h2>اتحاد الجامعات الإسلامية</h2>
             <p>🎓 تعليم إسلامي متقدم يخدم المجتمع | 📖 نشر العلم والقيم الإسلامية بطرق حديثة</p>
         </div>
 
@@ -161,8 +303,9 @@
             <nav class="sidebar-nav">
                 <ul>
                     <li><a href="#" class="nav-link active" data-section="dashboard">📊 لوحة التحكم</a></li>
+                    <li><a href="#" class="nav-link" data-section="content">📝 إدارة المحتوى</a></li>
+                    <li><a href="#" class="nav-link" data-section="courses-cms">📚 إدارة الدورات</a></li>
                     <li><a href="#" class="nav-link" data-section="users">👥 إدارة المستخدمين</a></li>
-                    <li><a href="#" class="nav-link" data-section="courses">📚 الدورات</a></li>
                     <li><a href="#" class="nav-link" data-section="settings">⚙️ الإعدادات</a></li>
                 </ul>
             </nav>
@@ -198,7 +341,7 @@
                         <div class="stat-icon">📚</div>
                         <div class="stat-info">
                             <h3>الدورات</h3>
-                            <p class="stat-number" id="totalCourses">4</p>
+                            <p class="stat-number" id="totalCourses">0</p>
                         </div>
                     </div>
                     <div class="stat-card">
@@ -220,6 +363,151 @@
                 <div class="welcome-section">
                     <h2>مرحباً بك في لوحة التحكم! 👋</h2>
                     <p>استخدم القائمة الجانبية للتنقل بين أقسام الإدارة</p>
+                </div>
+            </section>
+
+            <!-- Content Management Section (CMS) -->
+            <section class="content-section" id="contentSection">
+                <h2>📝 إدارة محتوى الموقع</h2>
+
+                <!-- Main Title & Tagline -->
+                <div class="cms-section">
+                    <h3>العنوان الرئيسي والشعار</h3>
+                    <form id="mainTitleForm">
+                        <div class="cms-form-group">
+                            <label for="mainTitle">العنوان الرئيسي</label>
+                            <input type="text" id="mainTitle" placeholder="مثال: اتحاد الجامعات الإسلامية">
+                        </div>
+                        <div class="cms-form-group">
+                            <label for="mainTagline">الشعار (الجملة الدعائية)</label>
+                            <textarea id="mainTagline" placeholder="مثال: لغةٌ راسخة، وقرآنٌ هادٍ، وتقنيةٌ تخدم القيم."></textarea>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn-save">💾 حفظ</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Logo Management -->
+                <div class="cms-section">
+                    <h3>شعار الاتحاد</h3>
+                    <form id="logoForm">
+                        <div class="cms-form-group">
+                            <label for="logoUrl">رابط الشعار (URL)</label>
+                            <input type="url" id="logoUrl" placeholder="https://example.com/logo.png">
+                        </div>
+                        <div class="image-preview" id="logoPreview"></div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn-save">💾 حفظ</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Vision & Mission -->
+                <div class="cms-section">
+                    <h3>الرؤية والرسالة</h3>
+                    <form id="visionMissionForm">
+                        <div class="form-row">
+                            <div class="cms-form-group">
+                                <label for="visionText">الرؤية</label>
+                                <textarea id="visionText" placeholder="مثال: تعليم إسلامي متقدم يخدم المجتمع"></textarea>
+                            </div>
+                            <div class="cms-form-group">
+                                <label for="missionText">الرسالة</label>
+                                <textarea id="missionText" placeholder="مثال: نشر العلم والقيم الإسلامية بطرق حديثة"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn-save">💾 حفظ</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="cms-section">
+                    <h3>الروابط السريعة</h3>
+                    <form id="quickLinksForm">
+                        <div class="form-row">
+                            <div class="cms-form-group">
+                                <label for="link1Title">عنوان الرابط الأول</label>
+                                <input type="text" id="link1Title" placeholder="مثال: لوحة التحكم">
+                            </div>
+                            <div class="cms-form-group">
+                                <label for="link1Url">رابط الصفحة الأول</label>
+                                <input type="text" id="link1Url" placeholder="مثال: dashboard.html">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="cms-form-group">
+                                <label for="link2Title">عنوان الرابط الثاني</label>
+                                <input type="text" id="link2Title" placeholder="مثال: قائمة المهام">
+                            </div>
+                            <div class="cms-form-group">
+                                <label for="link2Url">رابط الصفحة الثاني</label>
+                                <input type="text" id="link2Url" placeholder="مثال: todo.html">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="cms-form-group">
+                                <label for="link3Title">عنوان الرابط الثالث</label>
+                                <input type="text" id="link3Title" placeholder="مثال: منصة أكاديميا">
+                            </div>
+                            <div class="cms-form-group">
+                                <label for="link3Url">رابط الصفحة الثالث</label>
+                                <input type="text" id="link3Url" placeholder="مثال: index2.html">
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn-save">💾 حفظ</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Courses Management Section -->
+            <section class="content-section" id="coursesCmsSection">
+                <h2>📚 إدارة الدورات</h2>
+
+                <!-- Add New Course -->
+                <div class="cms-section">
+                    <h3>➕ إضافة دورة جديدة</h3>
+                    <form id="addCourseForm">
+                        <div class="form-row">
+                            <div class="cms-form-group">
+                                <label for="courseName">اسم الدورة</label>
+                                <input type="text" id="courseName" placeholder="مثال: HTML & CSS" required>
+                            </div>
+                            <div class="cms-form-group">
+                                <label for="courseIcon">أيقونة الدورة</label>
+                                <input type="text" id="courseIcon" placeholder="مثال: 📱" required>
+                            </div>
+                        </div>
+                        <div class="cms-form-group">
+                            <label for="courseDesc">وصف الدورة</label>
+                            <textarea id="courseDesc" placeholder="مثال: تعلم أساسيات بناء صفحات الويب" required></textarea>
+                        </div>
+                        <div class="form-row">
+                            <div class="cms-form-group">
+                                <label for="courseStudents">عدد الطلاب</label>
+                                <input type="number" id="courseStudents" placeholder="0" required>
+                            </div>
+                            <div class="cms-form-group">
+                                <label for="courseRating">التقييم</label>
+                                <input type="number" id="courseRating" placeholder="4.5" step="0.1" min="0" max="5" required>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn-add">➕ إضافة دورة</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Courses List -->
+                <div class="cms-section">
+                    <h3>قائمة الدورات الحالية</h3>
+                    <div class="courses-list" id="coursesList">
+                        <!-- Courses will be loaded here -->
+                    </div>
                 </div>
             </section>
 
@@ -285,65 +573,6 @@
                 </div>
             </section>
 
-            <!-- Courses Section -->
-            <section class="content-section" id="coursesSection">
-                <div class="section-header">
-                    <h2>إدارة الدورات</h2>
-                    <button class="btn-primary" id="addCourseBtn">➕ إضافة دورة جديدة</button>
-                </div>
-
-                <!-- Courses Grid -->
-                <div class="courses-grid">
-                    <div class="course-item">
-                        <div class="course-header">
-                            <h3>HTML & CSS</h3>
-                            <span class="course-badge">نشط</span>
-                        </div>
-                        <p class="course-desc">تعلم أساسيات بناء صفحات الويب</p>
-                        <div class="course-stats">
-                            <span>👥 150 طالب</span>
-                            <span>⭐ 4.9</span>
-                        </div>
-                        <div class="course-actions">
-                            <button class="btn-small btn-edit">✏️ تعديل</button>
-                            <button class="btn-small btn-delete">🗑️ حذف</button>
-                        </div>
-                    </div>
-
-                    <div class="course-item">
-                        <div class="course-header">
-                            <h3>JavaScript</h3>
-                            <span class="course-badge">نشط</span>
-                        </div>
-                        <p class="course-desc">احتراف لغة البرمجة الأساسية</p>
-                        <div class="course-stats">
-                            <span>👥 200 طالب</span>
-                            <span>⭐ 4.8</span>
-                        </div>
-                        <div class="course-actions">
-                            <button class="btn-small btn-edit">✏️ تعديل</button>
-                            <button class="btn-small btn-delete">🗑️ حذف</button>
-                        </div>
-                    </div>
-
-                    <div class="course-item">
-                        <div class="course-header">
-                            <h3>React.js</h3>
-                            <span class="course-badge">قريباً</span>
-                        </div>
-                        <p class="course-desc">بناء تطبيقات ويب حديثة</p>
-                        <div class="course-stats">
-                            <span>👥 0 طالب</span>
-                            <span>⭐ -</span>
-                        </div>
-                        <div class="course-actions">
-                            <button class="btn-small btn-edit">✏️ تعديل</button>
-                            <button class="btn-small btn-delete">🗑️ حذف</button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
             <!-- Settings Section -->
             <section class="content-section" id="settingsSection">
                 <div class="settings-container">
@@ -367,47 +596,14 @@
                             <button type="submit" class="btn-success">تحديث كلمة السر</button>
                         </form>
                     </div>
-
-                    <div class="settings-group">
-                        <h3>📧 البريد الإلكتروني</h3>
-                        <form id="emailForm" class="settings-form">
-                            <div class="form-group">
-                                <label>البريد الإلكتروني الحالي</label>
-                                <input type="email" id="currentEmail" disabled>
-                            </div>
-                            <div class="form-group">
-                                <label>البريد الإلكتروني الجديد</label>
-                                <input type="email" id="newEmail" required>
-                            </div>
-                            <button type="submit" class="btn-success">تحديث البريد الإلكتروني</button>
-                        </form>
-                    </div>
-
-                    <div class="settings-group danger-zone">
-                        <h3>⚠️ منطقة الخطر</h3>
-                        <p>حذف الحساب بشكل دائم</p>
-                        <button class="btn-danger" id="deleteAccountBtn">🗑️ حذف الحساب</button>
-                    </div>
                 </div>
             </section>
         </main>
     </div>
 
-    <!-- Modal for Edit/Delete -->
-    <div class="modal hidden" id="confirmModal">
-        <div class="modal-content">
-            <h3 id="modalTitle">تأكيد العملية</h3>
-            <p id="modalMessage"></p>
-            <div class="modal-actions">
-                <button class="btn-danger" id="confirmBtn">تأكيد</button>
-                <button class="btn-cancel" id="cancelBtn">إلغاء</button>
-            </div>
-        </div>
-    </div>
-
     <!-- Notification -->
     <div class="notification" id="notification"></div>
 
-    <script src="js/dashboard.js"></script>
+    <script src="js/dashboard-cms.js"></script>
 </body>
 </html>
